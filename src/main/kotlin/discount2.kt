@@ -1,6 +1,6 @@
 fun main() {
 
-    val result = calculateDiscount("Мир", 0, 50_000)
+    val result = calculateDiscount()
     if (result >= 0) println(result) else println("Лимит превышен, операция заблокирована")
     resetCounters()
 }
@@ -9,7 +9,7 @@ val dayLimit = 150_000
 val monthLimit = 600_000
 var dailyTransfer = 0
 
-fun calculateDiscount(level: String, transferPerMonth: Int, presentTransfer: Int): Int {
+fun calculateDiscount(level: String = "Мир", transferPerMonth: Int = 0, presentTransfer: Int = 50000): Int {
     dailyTransfer += presentTransfer
     val monthlyTransfer = transferPerMonth + dailyTransfer
     val discount = if (dailyTransfer <= dayLimit || monthlyTransfer <= monthLimit) {
